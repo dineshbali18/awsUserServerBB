@@ -1,5 +1,5 @@
 const express=require("express")
-require('dotenv').config()
+// require('dotenv').config()
 const mongoose=require("mongoose")
 const bodyParser=require("body-parser")
 const cors=require("cors")
@@ -38,8 +38,8 @@ app.use("/api",otpRoutes);
 app.use("/api",voteRoutes);
 
 
+var port=`5000`
 
-
-app.listen(5000||process.env.PORT,()=>{
-    console.log(`app is running at ${5000}`)
+app.listen(port,()=>{
+    console.log(`app is running at ${port}`)
 })
