@@ -9,6 +9,8 @@ const app=express();
 app.use(bodyParser.json())
 app.use(cors());
 
+var port=`5000`
+
 
 mongoose
   .connect('mongodb+srv://dineshbali45:DiNeSh5@cluster0.ecyxn.mongodb.net/Bigboss', {
@@ -38,7 +40,7 @@ app.use("/api",otpRoutes);
 app.use("/api",voteRoutes);
 
 
-var port=`5000`
+
 
 app.listen(port,()=>{
     console.log(`app is running at ${port}`)
