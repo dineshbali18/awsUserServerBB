@@ -13,7 +13,7 @@ var port=`5000`
 
 
 mongoose
-  .connect('mongodb+srv://dineshbali45:DiNeSh5@cluster0.ecyxn.mongodb.net/Bigboss', {
+  .connect('mongodb+srv://Bali:DiNeSh5@cluster0.xxcpi1d.mongodb.net/?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     // useCreateIndex: true
