@@ -17,6 +17,11 @@ exports.getContestantById=(req,res,next,id)=>{
       });
 };
 
+exports.getVoteCount=(req,res,next,votes)=>{
+    req.votecount=votes;
+    next();
+}
+
 exports.getAllContestants=(req,res)=>{
   contestant.find().exec((err,contestants1)=>{
     if (err || !contestants1) {
@@ -51,20 +56,6 @@ exports.createContestant=(req,res)=>{
             });
           }
           res.json({ contestant});
-    })
-}
-
-exports.increVotes=(req,res)=>{
-  console.log(req.votecount);
-    contestant.updateOne({_id:req.contestant._id},{$inc:{votes:+req.votecount}},(err,contestant)=>{
-        if(err){
-          console.log(err);
-            return res.status(400).json({
-                err:"count Not Updated"
-            })
-            }
-            // console.log(contestant)
-            res.json(contestant);
     })
 }
 /////////////////////
@@ -120,16 +111,16 @@ exports.increVotes=(req,res)=>{
 
 
 
-// exports.increVotes=(req,res)=>{
-//   console.log(req.votecount);
-//     contestant.updateOne({_id:req.contestant._id},{$inc:{votes:+req.votecount}},(err,contestant)=>{
-//         if(err){
-//           console.log(err);
-//             return res.status(400).json({
-//                 err:"count Not Updated"
-//             })
-//             }
-//             // console.log(contestant)
-//             res.json(contestant);
-//     })
-// }
+exports.increVotes=(req,res)=>{
+  console.log(req.votecount);
+    contestant.updateOne({_id:req.contestant._id},{$inc:{votes:+req.votecount}},(err,contestant)=>{
+        if(err){
+          console.log(err);
+            return res.status(400).json({
+                err:"count Not Updated"
+            })
+            }
+            // console.log(contestant)
+            res.json(contestant);
+    })
+}
