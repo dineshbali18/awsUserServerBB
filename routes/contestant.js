@@ -6,11 +6,11 @@ const { getUserById } = require("../controllers/user");
 
 router.param("contestantId",getContestantById)
 router.param("userId",getUserById)
-router.param("numberOfVotes",getVoteCount)
+router.param("vote",getVoteCount)
 
 router.post("/user/:userId/contestant/create",isSignedIn,isAuthenticated,isAdmin,createContestant)
 
-router.get("/user/:userId/contestant/incre/:contestantId/:numberOfVotes",isSignedIn,isAuthenticated,increVotes)
+router.get("/user/:userId/contestant/incre/:contestantId/vote/:vote",isSignedIn,isAuthenticated,increVotes)
 // router.get("/user/:userId/contestant/incre/:contestantId/:numberOfVotes",increVotes)
 
 router.post("/user/:userId/nominations/contestant",isSignedIn,isAuthenticated,getContestantIdByName)
